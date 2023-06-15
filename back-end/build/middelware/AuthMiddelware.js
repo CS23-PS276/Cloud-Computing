@@ -22,7 +22,7 @@ AuthMiddelware.auth = (req, res, next) => {
     try {
         const verifikasi = Auntentifikation_1.default.checkToken(token);
         delete req.headers.token;
-        req.app.locals.user = verifikasi;
+        req.app.locals.user = verifikasi.value;
         next();
     }
     catch (error) {

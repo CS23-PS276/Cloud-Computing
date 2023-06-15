@@ -11,6 +11,7 @@ const config_1 = require("./config");
 const auth_router_1 = __importDefault(require("./routers/auth.router"));
 const datasource_common_1 = require("./common/datasource.common");
 const user_router_1 = __importDefault(require("./routers/user.router"));
+const lansia_router_1 = __importDefault(require("./routers/lansia.router"));
 class App {
     constructor() {
         this.app = (0, express_1.default)();
@@ -31,6 +32,7 @@ class App {
     routes() {
         this.app.use("/", auth_router_1.default);
         this.app.use("/users", user_router_1.default);
+        this.app.use("/lansia", lansia_router_1.default);
     }
 }
 const port = config_1.config.port;

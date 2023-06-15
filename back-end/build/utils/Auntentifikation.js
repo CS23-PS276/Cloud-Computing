@@ -19,7 +19,6 @@ const config_1 = require("../config");
 class Auntentifikation {
 }
 _a = Auntentifikation;
-Auntentifikation.key = config_1.config.jwtKey;
 Auntentifikation.compare = (text, encryptedText) => __awaiter(void 0, void 0, void 0, function* () {
     return yield bcryptjs_1.default.compare(text, encryptedText);
 });
@@ -28,14 +27,14 @@ Auntentifikation.generatePassword = (text) => __awaiter(void 0, void 0, void 0, 
 });
 Auntentifikation.generateToken = (value) => {
     const token = jsonwebtoken_1.default.sign({
-        value
-    }, _a.key, {
-        expiresIn: config_1.config.jetLifeTime
+        value,
+    }, config_1.config.jwtKey, {
+        expiresIn: config_1.config.jetLifeTime,
     });
     return token;
 };
 Auntentifikation.checkToken = (token) => {
-    return jsonwebtoken_1.default.verify(token, _a.key);
+    return jsonwebtoken_1.default.verify(token, config_1.config.jwtKey);
 };
 exports.default = Auntentifikation;
 //# sourceMappingURL=Auntentifikation.js.map

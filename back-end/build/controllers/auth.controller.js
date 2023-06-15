@@ -25,10 +25,11 @@ class AuthController {
                 response = (0, created_helper_1.GetResponse)(result, 200, created_helper_1.message.SUCCESS);
             }
             catch (error) {
+                console.log(error);
                 switch (error.message) {
                     case "valid": {
                         response = (0, created_helper_1.GetResponse)({
-                            data: "email atau password salah"
+                            data: "email atau password salah",
                         }, 400, created_helper_1.message.FAILED);
                         break;
                     }
@@ -50,19 +51,19 @@ class AuthController {
                 switch (error.message) {
                     case "users": {
                         response = (0, created_helper_1.GetResponse)({
-                            data: "email sudah di pakai"
+                            data: "email sudah di pakai",
                         }, 401, created_helper_1.message.FAILED);
                         break;
                     }
                     case "pass": {
                         response = (0, created_helper_1.GetResponse)({
-                            data: "password tidak sama"
+                            data: "password tidak sama",
                         }, 400, created_helper_1.message.FAILED);
                         break;
                     }
                     case "email": {
                         response = (0, created_helper_1.GetResponse)({
-                            data: "email tidak valid"
+                            data: "email tidak valid",
                         }, 400, created_helper_1.message.FAILED);
                         break;
                     }

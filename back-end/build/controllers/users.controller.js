@@ -59,6 +59,12 @@ class UsersController {
             let response;
             const payload = req.body;
             payload.xid = req.params.xid;
+            const user = req.app.locals.user;
+            if (user.xid !== payload.xid) {
+                return res.status(403).send((0, created_helper_1.GetResponse)({
+                    data: "invalid user"
+                }, 403, created_helper_1.message.FAILED));
+            }
             try {
                 const result = yield this.service.updateUser(payload);
                 response = (0, created_helper_1.GetResponse)(result, 200, created_helper_1.message.SUCCESS);
@@ -89,6 +95,12 @@ class UsersController {
             const payload = {
                 xid: req.params.xid,
             };
+            const user = req.app.locals.user;
+            if (user.xid !== payload.xid) {
+                return res.status(403).send((0, created_helper_1.GetResponse)({
+                    data: "invalid user"
+                }, 403, created_helper_1.message.FAILED));
+            }
             try {
                 const result = yield this.service.deleteUser(payload);
                 response = (0, created_helper_1.GetResponse)({

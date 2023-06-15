@@ -16,6 +16,18 @@ class Users extends sequelize_1.Model {
                 type: sequelize_1.DataTypes.STRING(50),
                 allowNull: false,
             },
+            alamat: {
+                type: sequelize_1.DataTypes.STRING,
+                allowNull: true,
+            },
+            tanggalLahir: {
+                type: sequelize_1.DataTypes.STRING,
+                allowNull: true,
+            },
+            jenisKelamin: {
+                type: sequelize_1.DataTypes.BOOLEAN,
+                allowNull: true,
+            },
             email: {
                 type: sequelize_1.DataTypes.STRING(100),
                 allowNull: false,

@@ -52,10 +52,11 @@ class Auth {
             }
             const result = this.userService.composeUser(users);
             const token = Auntentifikation_1.default.generateToken(result);
-            return {
-                token: token,
-                accessTime: config_1.config.jetLifeTime,
+            result.token = {
+                access_token: token,
+                access_time: config_1.config.jetLifeTime,
             };
+            return result;
         });
         this.isEmail = (email) => {
             if (!email)

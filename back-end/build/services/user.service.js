@@ -42,6 +42,9 @@ class User {
             }
             const updateValue = (0, created_helper_1.updateData)(user, {
                 username: payload.username,
+                jenisKelamin: payload.jenisKelamin,
+                tanggalLahir: payload.tanggalLahir,
+                alamat: payload.alamat,
             });
             const result = yield this.userRepository.update(user.id, updateValue, payload.version);
             if (result === 0) {
@@ -67,6 +70,9 @@ class User {
                 xid: row.xid,
                 username: row.username,
                 email: row.email,
+                tanggalLahir: row.tanggalLahir,
+                alamat: row.alamat,
+                jenisKelamin: row.jenisKelamin,
                 createdAt: row.createdAt,
                 updateAt: row.updatedAt,
             };
