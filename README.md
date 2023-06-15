@@ -5,6 +5,12 @@
 # Cloud-Computing
 Cloud Computing Repository for CS23-PS276 Bangkit Capstone Project "Sahabat Lansia"
 
+
+<p align="center">
+  <img src="image/cloudarchitecture.png" alt="cloud architecture" />
+</p>
+
+
 ### The Service Available:
 * Authentication
   <pre>POST /register</pre>
@@ -20,10 +26,6 @@ Cloud Computing Repository for CS23-PS276 Bangkit Capstone Project "Sahabat Lans
   <pre>GET /users/:xid</pre>
   <pre>DEL /users/:xid</pre>
   
-  <p align="center">
-  <img src="image/cloudarchitecture.png" alt="cloud architecture" />
-</p>
-
 ## How to use
 
 * **Clone into your local repository** 
