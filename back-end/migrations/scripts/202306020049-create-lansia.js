@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 const { CommonColumn } = require("../columns");
-const { id, version, createdAt, updatedAt,  xid} = CommonColumn;
-const tableName = 'lansia';
+const { id, version, createdAt, updatedAt, xid } = CommonColumn;
+const tableName = "lansia";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -15,58 +15,66 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
         references: {
-            model: "users",
-            key: "xid",
-            as: "Users",
-        }
+          model: "users",
+          key: "xid",
+          as: "Users",
+        },
       },
       username: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
+      },
+      relation: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       dateBirthday: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       },
       gender: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.BOOLEAN,
+        allowNull: true,
       },
       height: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       weigth: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      alergi: {
-        type: Sequelize.TEXT,
         allowNull: true,
       },
       mobilitas: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       illness: {
         type: Sequelize.TEXT,
-        allowNull: false,
+        allowNull: true,
+      },
+      kebutuhan: {
+        type: Sequelize.TEXT,
+        allowNull: true,
+      },
+      detailIllness: {
+        type: Sequelize.TEXT,
+        allowNull: true,
       },
       language: {
-        type: Sequelize.TEXT,
-        allowNull: false,
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       alamat: {
         type: Sequelize.STRING(500),
-        allowNull: false,
+        allowNull: true,
       },
       noTelp: {
         type: Sequelize.STRING(20),
-        allowNull: false,
+        allowNull: true,
       },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable(tableName);
-  }
+  },
 };
